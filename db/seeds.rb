@@ -1,7 +1,22 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+300.times do |i|
+  datatable = Datatable.new
+  
+  (1..200).each do |y|
+    if y == 2
+      prefix = 'integer'
+      value = rand(0..200)
+    elsif y == 3
+      prefix = 'date'
+      value = rand(1.year.ago..1.year.from_now)
+    else
+      prefix = 'string'
+      value = "String #{y}"
+    end
+
+    num = sprintf '%03d', y
+    column_name = prefix + num
+    datatable.send("#{column_name}=", value)
+  end
+
+  datatable.save
+end
