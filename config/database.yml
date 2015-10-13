@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: demosite_development
+
+test:
+  <<: *default
+  database: demosite_test
+
+production:
+  <<: *default
+  database: demosite_production
+  username: demosite
+  password: <%= ENV['DEMOSITE_DATABASE_PASSWORD'] %>
