@@ -10,7 +10,7 @@
       value = rand(1.year.ago..1.year.from_now)
     else
       prefix = 'string'
-      value = "String #{y}"
+      value = rand(36**8).to_s(36)
     end
 
     num = sprintf '%03d', y

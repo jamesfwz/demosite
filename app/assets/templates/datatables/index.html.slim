@@ -1,0 +1,19 @@
+#datatables-index-container
+  h1 Listing 
+
+  .row
+    .col-md-8
+      .form-inline
+        .form-group.search
+          input.form-control ng-model="query" placeholder="Search"
+  
+  .table-responsive
+    table.table
+      thead
+        tr
+          th ng-repeat="(key,value) in datatable.items[0]" ng-bind="::key"
+      tbody infinite-scroll='datatable.nextPage()' infinite-scroll-disabled='datatable.busy' infinite-scroll-distance='20'
+        tr.datatables ng-repeat="data in datatable.items | filter:query" current-page="currentPage"
+          td ng-repeat="value in data" ng-bind="::value"
+
+  div.text-center ng-show='datatable.busy' Loading data...
