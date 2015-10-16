@@ -27,6 +27,8 @@ datatableServices.factory('Datatable', function($http) {
   };
 
   Datatable.prototype.load = function(url) {
+    if (this.busy) return;
+    
     this.busy = true;
 
     $http.get(url).success(function(data) {
@@ -41,9 +43,12 @@ datatableServices.factory('Datatable', function($http) {
   }
 
   Datatable.prototype.loadMore = function() {
+    if (this.busy) return;
+
     this.busy = true;
 
     url = "datatables.json?after="+this.lastId;  
+    console.log('url1: ' + url);
 
     $http.get(url).success(function(data) {
       if(data.length > 0){
