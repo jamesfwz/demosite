@@ -10,20 +10,20 @@
 
 ## Description:
 
-1.  There is a datatable to show:
+There is a datatable to show:
   a.  300 rows x 20 columns json data,
   b.  With date/string/numeric formatted from the json data,
 
-2.  For each row in the datatable:
+For each row in the datatable:
   a.  Double click to expand the row (i.e., show a sub datatable under the row).
   b.  The sub-datatable shows:
   c.  Random rows x 20 columns json data,
   d.  With date/string/numeric format,
 
-3.  The performance is critical
+The performance is critical
   a.  The loading of the table should be less than 1s,
   b.  The expansion of rows should not have visible blinking
 
-4.  Other optional functionalities
+Other optional functionalities
   a.  Resizable columns
   b.  Searchable columns
