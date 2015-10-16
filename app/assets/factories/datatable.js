@@ -39,7 +39,7 @@ datatableServices.factory('Datatable', function($http) {
 
     this.busy = true;
 
-    url = "datatables.json?after="+this.lastId;  
+    var url = "datatables.json?after="+this.lastId;  
 
     $http.get(url).success(function(data) {
       if(data.length > 0){
@@ -51,7 +51,7 @@ datatableServices.factory('Datatable', function($http) {
   };
 
   Datatable.prototype.appendSubAfter = function(index) {
-    random = Math.floor(Math.random()*(this.items.length))
+    var random = Math.floor(Math.random()*(this.items.length))
     this.items.splice(index + 1, 0, this.items[random]);
   };
 
