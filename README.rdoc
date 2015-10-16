@@ -1,28 +1,29 @@
-== README
+## Installation
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. git clone https://github.com/jamesfwz/demosite.git
+2. cd demosite
+3. bundle
+4. rake db:create
+5. rake db:migrate
+6. rake db:seed
+7. rails s
 
-Things you may want to cover:
+## Description:
 
-* Ruby version
+1.  There is a datatable to show:
+  a.  300 rows x 20 columns json data,
+  b.  With date/string/numeric formatted from the json data,
 
-* System dependencies
+2.  For each row in the datatable:
+  a.  Double click to expand the row (i.e., show a sub datatable under the row).
+  b.  The sub-datatable shows:
+  c.  Random rows x 20 columns json data,
+  d.  With date/string/numeric format,
 
-* Configuration
+3.  The performance is critical
+  a.  The loading of the table should be less than 1s,
+  b.  The expansion of rows should not have visible blinking
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+4.  Other optional functionalities
+  a.  Resizable columns
+  b.  Searchable columns
