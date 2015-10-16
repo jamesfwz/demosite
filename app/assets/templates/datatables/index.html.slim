@@ -1,19 +1,17 @@
 - cols = Datatable.column_names.each
 
-#head
-  .container
-    ng-include src="'shared/_search.html'" 
+ng-include src="'shared/_search.html'" 
 
-#datatables-index-container.included-head
+#datatables-index-container.included-search
   h1 Listing 
   .table-responsive
-    table.table
+    table.table.table-hover
       thead
         tr
           - cols.each do |col|
             th = col
       tbody infinite-scroll='datatable.nextPage() | filter:query' infinite-scroll-disabled='datatable.busy' infinite-scroll-distance='1'
-        tr.datatables ng-repeat="data in datatable.items | filter:query"
+        tr.datatables ng-repeat="(index,data) in datatable.items | filter:query track by $index" ng-dblClick="appendSub(index)"
           - cols.each do |col|
             td ng-bind="data.#{col}"
 

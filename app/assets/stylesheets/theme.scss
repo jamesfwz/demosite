@@ -1,12 +1,5 @@
-#head {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 50px;
-  background: #fff;
-  width: 100%;
-}
-
-.included-head {
-  padding-top: 50px;
+.table-hover {
+  tr {
+    cursor: pointer;
+  }
 }

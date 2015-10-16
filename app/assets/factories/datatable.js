@@ -40,7 +40,6 @@ datatableServices.factory('Datatable', function($http) {
     this.busy = true;
 
     url = "datatables.json?after="+this.lastId;  
-    console.log('url: ' + url);
 
     $http.get(url).success(function(data) {
       if(data.length > 0){
@@ -51,10 +50,15 @@ datatableServices.factory('Datatable', function($http) {
     }.bind(this))
   };
 
+  Datatable.prototype.appendSubAfter = function(index) {
+    random = Math.floor(Math.random()*(this.items.length))
+    this.items.splice(index + 1, 0, this.items[random]);
+  };
+
   Datatable.prototype.search = function(filter) {
     var url  = "datatables.json";
     this.load(url)
-  }
+  };
 
   return Datatable;
 });

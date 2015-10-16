@@ -1,7 +1,18 @@
 .shared-search-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 50px;
+  background: #fff;
+  width: 100%;
+
   .form-inline.controls {
     .form-group {
       margin-right: 5px;
     }
   }
+}
+
+.included-search {
+  padding-top: 50px;
 }
