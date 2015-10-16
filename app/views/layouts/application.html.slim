@@ -6,5 +6,6 @@ html ng-app="demoApp"
     = javascript_include_tag 'application'
     = csrf_meta_tags
   body
-    .container
-      = yield
+    #main
+      .container
+        = yield

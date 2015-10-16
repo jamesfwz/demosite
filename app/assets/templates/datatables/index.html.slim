@@ -1,19 +1,20 @@
-#datatables-index-container
-  h1 Listing 
+- cols = Datatable.column_names.each
 
-  .row
-    .col-md-8
-      .form-inline
-        .form-group.search
-          input.form-control ng-model="query" placeholder="Search"
-  
+#head
+  .container
+    ng-include src="'assets/shared/_search.html'" 
+
+#datatables-index-container.included-head
+  h1 Listing 
   .table-responsive
     table.table
       thead
         tr
-          th ng-repeat="(key,value) in datatable.items[0]" ng-bind="::key"
-      tbody infinite-scroll='datatable.nextPage()' infinite-scroll-disabled='datatable.busy' infinite-scroll-distance='20'
-        tr.datatables ng-repeat="data in datatable.items | filter:query" current-page="currentPage"
-          td ng-repeat="value in data" ng-bind="::value"
+          - cols.each do |col|
+            th = col
+      tbody infinite-scroll='datatable.nextPage()' infinite-scroll-disabled='datatable.busy' infinite-scroll-distance='1'
+        tr.datatables ng-repeat="data in datatable.items | filter:query"
+          - cols.each do |col|
+            td ng-bind="data.#{col}"
 
   div.text-center ng-show='datatable.busy' Loading data...
