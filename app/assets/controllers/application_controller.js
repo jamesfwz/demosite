@@ -3,7 +3,7 @@ demoApp = angular.module('demoApp', ['ngRoute','templates','datatableServices','
 demoApp.config(function ($routeProvider) {
   $routeProvider.
       when('/', {
-        templateUrl: 'assets/datatables/index.html',
+        templateUrl: 'datatables/index.html',
         controller: 'datatablesIndexCtrl'
       }).
       otherwise({
