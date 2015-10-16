@@ -13,8 +13,6 @@ datatableServices.factory('Datatable', function($http) {
   Datatable.prototype.nextPage = function() {
     if (this.busy) return;
 
-    this.busy = true;
-
     if(this.items.length == 0) {
       var url  = "datatables.json?limit="+this.initLimit;
       this.load(url)
@@ -24,11 +22,13 @@ datatableServices.factory('Datatable', function($http) {
     }
 
     if(this.tmp.length != 0) {
-      this.items = this.items.concat(this.tmp.splice(0,1));
+      this.items = this.items.concat(this.tmp.splice(0,10));
     }
   };
 
   Datatable.prototype.load = function(url) {
+    this.busy = true;
+
     $http.get(url).success(function(data) {
       this.items = data;
       this.tmp = [];
@@ -41,6 +41,8 @@ datatableServices.factory('Datatable', function($http) {
   }
 
   Datatable.prototype.loadMore = function() {
+    this.busy = true;
+
     url = "datatables.json?after="+this.lastId;  
 
     $http.get(url).success(function(data) {
@@ -54,7 +56,6 @@ datatableServices.factory('Datatable', function($http) {
 
   Datatable.prototype.search = function(filter) {
     if (this.busy) return;
-    this.busy = true;
     var url  = "datatables.json";
     this.load(url)
   }

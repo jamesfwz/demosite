@@ -12,7 +12,7 @@
         tr
           - cols.each do |col|
             th = col
-      tbody infinite-scroll='datatable.nextPage()' infinite-scroll-disabled='datatable.busy' infinite-scroll-distance='1'
+      tbody infinite-scroll='datatable.nextPage() | filter:query' infinite-scroll-disabled='datatable.busy' infinite-scroll-distance='1'
         tr.datatables ng-repeat="data in datatable.items | filter:query"
           - cols.each do |col|
             td ng-bind="data.#{col}"
