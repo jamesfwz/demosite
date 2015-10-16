@@ -11,7 +11,7 @@ ng-include src="'shared/_search.html'"
           - cols.each do |col|
             th = col
       tbody infinite-scroll='datatable.nextPage() | filter:query' infinite-scroll-disabled='datatable.busy' infinite-scroll-distance='1'
-        tr.datatables ng-repeat="(index,data) in datatable.filteredItems = (datatable.items | filter:query) track by $index" ng-dblClick="appendSub(index)"
+        tr.datatables ng-repeat="(index,data) in datatable.filteredItems = (datatable.items | filter:query) track by $index" ng-dblClick="appendSub(data)"
           - cols.each do |col|
             td ng-bind="data.#{col}"
 
