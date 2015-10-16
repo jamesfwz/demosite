@@ -12,11 +12,10 @@ datatableServices.factory('Datatable', function($http) {
   };
 
   Datatable.prototype.nextPage = function() {
-    this.loadMore();
-
     if(this.tmp.length != 0) {
-      this.items = this.items.concat(this.tmp.splice(0,10));
+      this.items = this.items.concat(this.tmp.splice(0,5));
     }
+    this.loadMore();
   };
 
   Datatable.prototype.load = function(url) {
@@ -41,7 +40,7 @@ datatableServices.factory('Datatable', function($http) {
     this.busy = true;
 
     url = "datatables.json?after="+this.lastId;  
-    console.log('url1: ' + url);
+    console.log('url: ' + url);
 
     $http.get(url).success(function(data) {
       if(data.length > 0){
