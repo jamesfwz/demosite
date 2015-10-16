@@ -51,8 +51,8 @@ datatableServices.factory('Datatable', function($http) {
   };
 
   Datatable.prototype.appendSubAfter = function(index) {
-    var random = Math.floor(Math.random()*(this.items.length))
-    this.items.splice(index + 1, 0, this.items[random]);
+    var random = Math.floor(Math.random()*(this.filteredItems.length))
+    this.items.splice(index + 1, 0, this.filteredItems[random]);
   };
 
   Datatable.prototype.search = function(filter) {
