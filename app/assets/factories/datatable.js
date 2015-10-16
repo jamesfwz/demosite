@@ -35,7 +35,7 @@ datatableServices.factory('Datatable', function($http) {
   }
 
   Datatable.prototype.loadMore = function() {
-    if (this.busy) return;
+    if (this.busy || this.tmp.length > 0) return;
 
     this.busy = true;
 
