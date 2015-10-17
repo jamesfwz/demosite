@@ -1,6 +1,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require resizable-column/store.min
+//= require resizable-column/main.min
 //= require angular
 //= require angular-route
 //= require angular-resource
@@ -9,3 +11,4 @@
 //= require_tree ../factories
 //= require_tree ../templates
 //= require_tree ../controllers
+//= require global
