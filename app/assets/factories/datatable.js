@@ -6,7 +6,7 @@ datatableServices.factory('Datatable', function($http) {
     this.tmp = []
     this.busy = false;
     this.initLimit = 30;
-    this.loadMoreLimit = 50;
+    this.loadMoreLimit = 100;
     this.lastId = 0
     this.load("datatables.json?limit="+this.initLimit)
   };
@@ -39,7 +39,7 @@ datatableServices.factory('Datatable', function($http) {
 
     this.busy = true;
 
-    var url = "datatables.json?after="+this.lastId;  
+    var url = "datatables.json?after="+this.lastId+"&limit="+this.loadMoreLimit;  
 
     $http.get(url).success(function(data) {
       if(data.length > 0){
